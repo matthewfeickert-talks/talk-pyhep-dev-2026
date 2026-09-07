@@ -8,7 +8,7 @@ count: false
 
 .large[
 [PyHEP.dev 2026](https://indico.nikhef.nl/event/7873/contributions/31378/)<br>
-September 9th, 2026
+September 8th, 2026
 ]
 
 <!--
@@ -263,7 +263,7 @@ pixi browse -m root_base
 .huge[
 <!-- * Impressive global cyberinfrastructure and automation -->
 * Community approach of .bold[building coherently together]
-   - Over 32,000 packages with over 42 billion downloads and growing
+   - Over 34,000 packages with over 48 billion downloads and growing
    - Supports building and .bold[using] all packages built on conda-forge together without conflicts (boon over private channel)
    - Provides "[global pinning](https://github.com/conda-forge/conda-forge-pinning-feedstock)" infrastructure to .bold[automatically migrate ABI changes] across entire ecosystem
 * Automate the boring stuff, focus on getting useful software
@@ -388,6 +388,36 @@ pixi add fastjet-contrib fastjet-cxx-python
 pixi run python -c 'import fastjet_cxx as fj'
 </pre>
 </div>
+</div>
+]
+
+---
+# Case study: Pythonic analysis
+
+.kol-2-3[
+.code-large[
+* conda-forge Python builds fast/optimally-built Python pre-built binaries
+   - conda-forge has optimizations throughout the entire toolchain
+   - [`python-build-standalone`](https://github.com/astral-sh/python-build-standalone) (now maintained by [Astral](https://github.com/astral-sh)) can be [.italic[slightly] faster](https://conda-forge.zulipchat.com/#narrow/channel/457337-general/topic/Performance.20of.20builds.20from.20.60python-feedstock.60.20vs.20upstream/with/504989455) now (e.g. statically linked `zlib` decompresses ROOT baskets faster)
+* In some cases, the conda-forge versions of Python packages and Python are .bold[faster than the Python package builds on PyPI]
+   - .italic[Probable] reasons: conda-forge builds have newer compilers, not statically linking and vendoring
+* Benchmarking the IRIS-HEP CMS Analysis Grand Challenge (AGC) has shown .bold[faster analysis throughput with full conda-forge ecosystem environments]
+   - Bigger impact comes from using .bold[newer Python versions]. With conda packaged Python updating is trivial. ([Python 3.15](https://conda-forge.org/blog/2026/09/03/python-315/) build migration ongoing)
+   - Credit: [Peter Fackeldey](https://github.com/pfackeldey), [Iason Krommydas](https://github.com/ikrommyd)
+]
+]
+.kol-1-3[
+<div class="figure-column">
+<p style="text-align:center;">
+   <a href="https://github.com/conda-forge/python-feedstock">
+      <img src="figures/python-logo.svg"; width=100%>
+   </a>
+</p>
+<p style="text-align:center;">
+   <a href="https://iris-hep.org/">
+      <img src="assets/logos/logo_IRIS-HEP.png" style="width:80%">
+   </a>
+</p>
 </div>
 ]
 
@@ -522,7 +552,7 @@ pixi exec --spec rucio-mcp sh -c 'RUCIO_ACCOUNT=&lt;your username&gt; rucio-mcp 
 .bold.center[Can conda packages be built against development software?]
 
 * Yes, with [`pixi-build`](https://pixi.prefix.dev/v0.72.1/build/getting_started/) &mdash; a "preview" Pixi feature that has already reached maturity
-   - c.f. talk on Pixi + `pixi-build` by dev team at [SciPy 2026 on 2026-07-16](https://pretalx.com/scipy-2026/talk/MEKP9F/)
+   - c.f. talk on Pixi + `pixi-build` by Ruben Arts at [SciPy 2026 on 2026-07-16](https://pretalx.com/scipy-2026/talk/MEKP9F/) and [PyHEP.dev 2026](https://indico.nikhef.nl/event/7873/contributions/31401/)
 * Allows for building and installing source distributions into conda packages.
    - If a package repository has a Pixi manifest, it can build itself into a conda package for development
 * Allows for [defining dependencies against development software sources](https://pixi.prefix.dev/v0.72.1/build/package_source/)
@@ -537,40 +567,6 @@ wire-cell-toolkit.git = "https://github.com/WireCell/wire-cell-toolkit.git"
 wire-cell-toolkit.rev = "61618538be4b6b2241d5be1e9abab6a3e0d4ad97"
 ...
 ```
-]
-
----
-# (Possible?) questions / concerns
-
-.large[
-.bold.center[Doesn't having dev source recipes and conda-forge recipes duplicate work?]
-
-Yes and no (or, like all good question, "it depends")
-* `pixi-build`: "Recipes" for building .bold[development] software against .bold[development] software dependencies
-   - Uses minimal config and "build backends" to `rattler-build` recipe internally
-   - Can use a full `rattler-build` recipe if desired
-* conda-forge: `rattler-build` recipes for building .bold[released] software against .bold[released] software dependencies
-* Think less "duplication" and more "defining the motivation and scope of software distribution"
-* Counter to me: conda-forge feedstock maintainer might feel maintenance burden if not a core dev of software being released
-   - Counter-counter: The age of agentic tooling means that you're .bold[reviewing] a recipe change, not creating it
-]
-
----
-# (Possible?) questions / concerns
-
-.large[
-.bold.center[When would you not use conda-forge?]
-
-A hyper specific software distribution index: Recreating an LCG release for experiment physics stack
-
-1. Put all your software releases on conda-forge
-1. Construct the exact release configurations that you would like others to build from (the LCG collection) and create a Pixi lockfile for this
-1. Construct a .bold[private conda channel] from this lockfile that people can now install/build against
-   - A .bold[channel] of fully static, unambigious set of dependencies that are still conda packages
-1. Use [`pixi publish`](https://pixi.prefix.dev/v0.72.1/reference/cli/pixi/publish/) to build and publish sensitive packages to private distribution channel
-   <!-- - Either the first private conda channel or a new one -->
-1. To update bump any dependencies, use [`rattler-build rebuild`](https://rattler-build.prefix.dev/v0.68.0/rebuild/) to .bold[reproduce] the original build of an upstream dependency and apply patches to make a new frozen channel
-   - LCG terminology: LCG108 vs. LCG108a
 ]
 
 ---
@@ -658,36 +654,6 @@ Linux containers for when you want to:
 
 Containerization .bold[should be trivial install of existing locked environment]
 .center[DOI: [10.25080/nwuf8465](https://doi.org/10.25080/nwuf8465)]
-]
-
----
-# Case study: Pythonic analysis
-
-.kol-2-3[
-.code-large[
-* conda-forge Python builds currently fastest/optimally-built Python pre-built binaries
-   - conda-forge has optimizations throughout the entire toolchain
-   - [`python-build-standalone`](https://github.com/astral-sh/python-build-standalone) (now maintained by [Astral](https://github.com/astral-sh)) can be [.italic[slightly] faster](https://conda-forge.zulipchat.com/#narrow/channel/457337-general/topic/Performance.20of.20builds.20from.20.60python-feedstock.60.20vs.20upstream/with/504989455) now
-* In most cases, the conda-forge versions of Python packages and Python are .bold[faster than the Python package builds on PyPI]
-   - .italic[Probable] reasons: conda-forge builds have newer compilers, not statically linking and vendoring
-* Benchmarking the IRIS-HEP CMS Analysis Grand Challenge (AGC) has shown .bold[faster analysis throughput with full conda-forge ecosystem environments]
-   - Bigger impact comes from using .bold[newer Python versions]. With conda packaged Python updating is trivial.
-   - Credit: [Peter Fackeldey](https://github.com/pfackeldey), [Iason Krommydas](https://github.com/ikrommyd)
-]
-]
-.kol-1-3[
-<div class="figure-column">
-<p style="text-align:center;">
-   <a href="https://github.com/conda-forge/python-feedstock">
-      <img src="figures/python-logo.svg"; width=100%>
-   </a>
-</p>
-<p style="text-align:center;">
-   <a href="https://iris-hep.org/">
-      <img src="assets/logos/logo_IRIS-HEP.png" style="width:80%">
-   </a>
-</p>
-</div>
 ]
 
 ---
@@ -785,6 +751,40 @@ sys	0m0.062s
    - Large benefit from the shared infrastructure and globally coherent builds (global pinning)
    - Avoids overlap with multi-purpose software (ROOT, Geant4, ...)
    - No concern with overly niche tooling being on conda-forge (this is welcomed by conda-forge/core)
+]
+
+---
+# (Possible?) questions / concerns
+
+.large[
+.bold.center[Doesn't having dev source recipes and conda-forge recipes duplicate work?]
+
+Yes and no (or, like all good question, "it depends")
+* `pixi-build`: "Recipes" for building .bold[development] software against .bold[development] software dependencies
+   - Uses minimal config and "build backends" to `rattler-build` recipe internally
+   - Can use a full `rattler-build` recipe if desired
+* conda-forge: `rattler-build` recipes for building .bold[released] software against .bold[released] software dependencies
+* Think less "duplication" and more "defining the motivation and scope of software distribution"
+* Counter to me: conda-forge feedstock maintainer might feel maintenance burden if not a core dev of software being released
+   - Counter-counter: The age of agentic tooling means that you're .bold[reviewing] a recipe change, not creating it
+]
+
+---
+# (Possible?) questions / concerns
+
+.large[
+.bold.center[When would you not use conda-forge?]
+
+A hyper specific software distribution index: Recreating an LCG release for experiment physics stack
+
+1. Put all your software releases on conda-forge
+1. Construct the exact release configurations that you would like others to build from (the LCG collection) and create a Pixi lockfile for this
+1. Construct a .bold[private conda channel] from this lockfile that people can now install/build against
+   - A .bold[channel] of fully static, unambigious set of dependencies that are still conda packages
+1. Use [`pixi publish`](https://pixi.prefix.dev/v0.72.1/reference/cli/pixi/publish/) to build and publish sensitive packages to private distribution channel
+   <!-- - Either the first private conda channel or a new one -->
+1. To update bump any dependencies, use [`rattler-build rebuild`](https://rattler-build.prefix.dev/v0.68.0/rebuild/) to .bold[reproduce] the original build of an upstream dependency and apply patches to make a new frozen channel
+   - LCG terminology: LCG108 vs. LCG108a
 ]
 
 ---
