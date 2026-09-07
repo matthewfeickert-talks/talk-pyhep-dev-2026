@@ -11,8 +11,6 @@ count: false
 September 9th, 2026
 ]
 
-.middle-logo[]
-
 <!--
 # Abstract
 
