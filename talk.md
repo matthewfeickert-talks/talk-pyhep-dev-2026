@@ -63,7 +63,7 @@ This process significantly lowers technical barriers across tool development by 
          <img src="figures/stark.jpg">
       </a>
    .center[[Giordon Stark](https://giordonstark.com/)
-   UC Santa Cruz<br>
+   University of Chicago<br>
    (ATLAS, IRIS-HEP,<br>Scikit-HEP)]
    </figure>
 </div>
