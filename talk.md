@@ -3,12 +3,12 @@ count: false
 
 # HEP Packaging Coordination:<br>Distributing the HEP software ecosystem<br>on conda-forge
 
-.huge.blue[Matthew Feickert], .huge[Chris Burr]<br>
-.huge[(University of Wisconsin&ndash;Madison, CERN)]
+.huge.blue[Matthew Feickert], .huge[Chris Burr], .huge[Giordon Stark]<br>
+.huge[(University of Wisconsin&ndash;Madison, CERN, University of Chicago)]
 
 .large[
-[DUNE Software Architecture Meeting](https://indico.fnal.gov/event/75177/)<br>
-July 10th, 2026
+[PyHEP.dev 2026](https://indico.nikhef.nl/event/7873/contributions/31378/)<br>
+September 9th, 2026
 ]
 
 .middle-logo[]
@@ -518,7 +518,7 @@ pixi exec --spec rucio-mcp sh -c 'RUCIO_ACCOUNT=&lt;your username&gt; rucio-mcp 
 ]
 
 ---
-# (Possible?) DUNE questions / concerns
+# (Possible?) questions / concerns
 
 .large[
 .bold.center[Can conda packages be built against development software?]
@@ -542,7 +542,7 @@ wire-cell-toolkit.rev = "61618538be4b6b2241d5be1e9abab6a3e0d4ad97"
 ]
 
 ---
-# (Possible?) DUNE questions / concerns
+# (Possible?) questions / concerns
 
 .large[
 .bold.center[Doesn't having dev source recipes and conda-forge recipes duplicate work?]
@@ -558,7 +558,7 @@ Yes and no (or, like all good question, "it depends")
 ]
 
 ---
-# (Possible?) DUNE questions / concerns
+# (Possible?) questions / concerns
 
 .large[
 .bold.center[We use Spack for a reason: performance at runtime]
@@ -571,7 +571,7 @@ Yes and no (or, like all good question, "it depends")
 * Answers might all be "yes"
 ]
 ---
-# (Possible?) DUNE questions / concerns
+# (Possible?) questions / concerns
 
 .large[
 .bold.center[When would you not use conda-forge?]
