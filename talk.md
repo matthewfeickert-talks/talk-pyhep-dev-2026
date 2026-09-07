@@ -559,19 +559,6 @@ Yes and no (or, like all good question, "it depends")
 # (Possible?) questions / concerns
 
 .large[
-.bold.center[We use Spack for a reason: performance at runtime]
-
-* Does .italic[every] use of your software warrant a .bold[runtime-machine-specific-from-source build]?
-* Has the performance gain from Spack compared to a platform-specific / [microarchitecture-optimized](https://conda-forge.org/docs/maintainer/knowledge_base/#microarch) package been benchmarked and quantified? How much is being gained?
-* Are you using [Spack binary mirrors](https://cache.spack.io/)? If so, how much of a tradeoff do you have there?
-   - Something like [Key4hep Spack + CVMFS approach](https://doi.org/10.1051/epjconf/202533701146)?
-   - Note that [Spack "splicing"](https://arxiv.org/abs/2509.07728) doesn't seem fully(?) mature yet
-* Answers might all be "yes"
-]
----
-# (Possible?) questions / concerns
-
-.large[
 .bold.center[When would you not use conda-forge?]
 
 A hyper specific software distribution index: Recreating an LCG release for experiment physics stack
@@ -798,6 +785,20 @@ sys	0m0.062s
    - Large benefit from the shared infrastructure and globally coherent builds (global pinning)
    - Avoids overlap with multi-purpose software (ROOT, Geant4, ...)
    - No concern with overly niche tooling being on conda-forge (this is welcomed by conda-forge/core)
+]
+
+---
+# (Possible?) questions / concerns
+
+.large[
+.bold.center[We use Spack for a reason: performance at runtime]
+
+* Does .italic[every] use of your software warrant a .bold[runtime-machine-specific-from-source build]?
+* Has the performance gain from Spack compared to a platform-specific / [microarchitecture-optimized](https://conda-forge.org/docs/maintainer/knowledge_base/#microarch) package been benchmarked and quantified? How much is being gained?
+* Are you using [Spack binary mirrors](https://cache.spack.io/)? If so, how much of a tradeoff do you have there?
+   - Something like [Key4hep Spack + CVMFS approach](https://doi.org/10.1051/epjconf/202533701146)?
+   - Note that [Spack "splicing"](https://arxiv.org/abs/2509.07728) doesn't seem fully(?) mature yet
+* Answers might all be "yes"
 ]
 
 ---
