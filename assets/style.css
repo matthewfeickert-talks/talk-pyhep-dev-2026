@@ -1,0 +1,836 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,900);
+
+body {
+    font-family:  'Lato', 'Avenir Next', 'Avenir', 'Trebuchet MS', 'Segoe UI', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #354046; /*#455a64;*/
+    line-height: 1.4;
+    font-size: 11pt;
+    word-wrap: break-word;
+}
+
+.footnote {
+  position: absolute;
+  bottom: 2em;
+  font-size: 0.5em;
+  opacity: 0.75;
+  margin-left: -5.5em;
+}
+
+
+.footnote a{
+    color: #20707e;
+}
+
+.footnote:before {
+    content: "\2015\2015\2015";
+    display: block;
+}
+
+.red {
+    color: #d11a01;
+}
+
+.blue {
+    color: #0000ff;
+}
+
+.green {
+    color: #008000;
+}
+
+.gray {
+    color: #808080;
+}
+
+.Q {
+    color: #009933;
+}
+
+.obsdata {
+    color: #00a620;
+}
+
+.auxdata {
+    color: #a3130f;
+}
+
+.freepars {
+    color: #0495fc;
+}
+
+.conpars {
+    color: #9c2cfc;
+}
+
+.cptools {
+    color: #929292;
+}
+
+.datacolumn {
+    color: #0076ba;
+}
+
+.newcolumn {
+    color: #00ab8e;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.remark-container {
+    background: #ddd;
+}
+
+.remark-slide-content {
+    font-size: 1.4em;
+    border-top: solid 5px #20707e;
+}
+
+.remark-slide-content h1 {
+    font-weight: bold;
+    font-size: 2.25em;
+    margin: 0 0 .5em 0;
+    color: #17525d;
+}
+
+.remark-slide-content h2 {
+    color: #d11a01;
+    font-size: 1.5em;
+    font-weight: normal;
+    margin: 0 0 .5em 0;
+}
+
+.remark-slide-content h3 {
+    font-size: 1.0em;
+    font-weight: normal;
+    margin: 0 0 .5em 0;
+}
+
+.remark-slide-number {
+    font-size: 0.5em;
+    bottom: 2em;
+}
+
+.code-tiny-tiny {
+    font-size: 0.4em;
+}
+
+.code-tiny {
+    font-size: 0.5em;
+}
+
+.tiny {
+    font-size: 0.6em;
+}
+
+.smaller {
+    font-size: 0.8em;
+}
+
+.normal {
+    font-size: 1em;
+}
+
+.code-large {
+    font-size: 1.1em;
+}
+
+.large {
+    font-size: 1.2em;
+}
+
+.larger {
+    font-size: 1.35em;
+}
+
+.huge {
+    font-size: 1.5em;
+}
+
+.huge-cite {
+    font-size: 1.36em;
+}
+
+a {
+    color: #0288d1;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+em {
+    color: #0288d1;
+    font-style: normal;
+}
+
+strong {
+    color: #d11a01;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.katex {
+    color: #1a7082;
+}
+
+.remark-code {
+    font-size: 1em;
+}
+
+ul > li, ol > li {
+     margin: 0.6em 0;
+}
+
+ul > li > ul > li {
+    font-size: 0.8em;
+}
+
+table {
+    border-spacing: 0;
+    border: 1px solid #e2e2e2;
+    font-size: .8em;
+    margin: auto;
+    padding: 0;
+}
+
+thead {
+    border: 0;
+    margin: 0;
+}
+
+th {
+    background: #e2e2e2;
+    border: 0;
+    font-weight: bold;
+    margin: 0;
+    padding: 7px 0;
+    text-align: center;
+}
+
+tbody {
+    background: white;
+    font-size: .8em;
+    margin: 0;
+}
+
+tr {
+    margin: 0;
+    padding: 0;
+}
+
+tr:nth-child(odd) {
+    background: #fcfcfc;
+}
+
+td {
+    margin: 0;
+    padding: 5px 8px;
+}
+
+.pull-left {
+    float: left;
+    margin-right: 1em;
+}
+
+.pull-right {
+    float: right;
+    margin-left: 1em;
+}
+
+.caption {
+    display: block;
+    text-align: center;
+    font-size: 0.8em;
+    /* font-style: italic; */
+}
+
+/* Crop any descendant <img> to a circle inscribed in its rendered width.
+   - aspect-ratio: 1 / 1 forces the rendered box to a square equal to the
+     image's current width (e.g. flex track width inside .figure-row).
+   - object-fit: cover scales the source to fill the square and centres
+     the crop, so portrait or landscape originals lose their off-axis
+     edges rather than squashing into an ellipse.
+   - border-radius: 50% turns the square into a circle whose diameter is
+     the figure's full width. */
+.circle img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+
+.stretch img {
+    width: 100%;
+    height: auto;
+}
+
+.solid {
+  border-style: solid;
+}
+
+.dashed {
+  border-style: dashed;
+}
+
+.width-5 * {
+    width: 5%;
+}
+
+.width-10 * {
+    width: 10%;
+}
+
+.width-15 * {
+    width: 15%;
+}
+
+.width-20 * {
+    width: 20%;
+}
+
+.width-25 * {
+    width: 25%;
+}
+
+.width-30 * {
+    width: 30%;
+}
+
+.width-35 * {
+    width: 35%;
+}
+
+.width-40 * {
+    width: 40%;
+}
+
+.width-45 * {
+    width: 45%;
+}
+
+.width-50 * {
+    width: 50%;
+}
+
+.width-55 * {
+    width: 55%;
+}
+
+.width-60 * {
+    width: 60%;
+}
+
+.width-65 * {
+    width: 65%;
+}
+
+.width-70 * {
+    width: 70%;
+}
+
+.width-75 * {
+    width: 75%;
+}
+
+.width-80 * {
+    width: 80%;
+}
+
+.width-85 * {
+    width: 85%;
+}
+
+.width-90 * {
+    width: 90%;
+}
+
+.width-95 * {
+    width: 95%;
+}
+
+.width-100 * {
+    width: 100%;
+}
+
+.width-105 * {
+    width: 105%;
+}
+
+.width-110 * {
+    width: 110%;
+}
+
+.width-115 * {
+    width: 115%;
+}
+
+.width-120 * {
+    width: 120%;
+}
+
+.width-125 * {
+    width: 125%;
+}
+
+.width-130 * {
+    width: 130%;
+}
+
+.width-135 * {
+    width: 135%;
+}
+
+.width-140 * {
+    width: 140%;
+}
+
+.width-145 * {
+    width: 145%;
+}
+
+.width-150 * {
+    width: 150%;
+}
+
+.width-155 * {
+    width: 155%;
+}
+
+.width-160 * {
+    width: 160%;
+}
+
+.width-165 * {
+    width: 165%;
+}
+
+.width-170 * {
+    width: 170%;
+}
+
+.width-175 * {
+    width: 175%;
+}
+
+.width-180 * {
+    width: 180%;
+}
+
+.width-185 * {
+    width: 185%;
+}
+
+.width-190 * {
+    width: 190%;
+}
+
+.width-195 * {
+    width: 195%;
+}
+
+.width-200 * {
+    width: 200%;
+}
+
+/* Vertically center a figure within the slide content area.
+   Use --top to set the vertical position (default: 50%).
+   Use --width to set the figure width (default: 100%).
+   Example: <div class="figure-vcenter" style="--top:50%; --width:100%;">
+   Supports an optional <figcaption> below the image. */
+.figure-vcenter {
+    position: relative;
+    height: 550px;
+}
+
+.figure-vcenter > figure {
+    position: absolute;
+    top: var(--top, 50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: var(--width, 100%);
+    margin: 0;
+    text-align: center;
+}
+
+.figure-vcenter > figure ul {
+    text-align: left;
+}
+
+.figure-vcenter > figure > figcaption {
+    margin-top: 0.4em;
+    font-size: 0.8em;
+}
+
+/* Place multiple figures side-by-side in a row.
+   Each child <figure> takes an equal share by default; override with
+   flex-basis or a width style on individual figures to weight them.
+   Use --gap to control horizontal spacing.
+   Example:
+   <div class="figure-row">
+      <figure><img ...><figcaption>...</figcaption></figure>
+      <figure><img ...><figcaption>...</figcaption></figure>
+   </div> */
+.figure-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap, 1em);
+}
+
+/* Top-align figures so images stay level when captions wrap to
+   different line counts (align-items: center would vertically offset
+   the taller figures). */
+.figure-row.align-top {
+    align-items: flex-start;
+}
+
+.figure-row > figure {
+    margin: 0;
+    text-align: center;
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+/* Match images at any depth so wrapping an <img> in an <a href="..."> or
+   any other inline element still picks up sizing. */
+.figure-row > figure img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* A bare <a> is inline and won't fill the column; make it behave as a
+   block so the img inside sizes against the figure's flex track. */
+.figure-row > figure a {
+    display: block;
+}
+
+.figure-row > figure > figcaption {
+    margin-top: 0.4em;
+    font-size: 0.8em;
+}
+
+/* Overlapping cascade of figures, each on its own layer.
+   The container is `position: relative` with a configurable height;
+   each child <figure> is `position: absolute` and tuned with its own
+   CSS custom properties:
+
+     --x: horizontal offset from the container's left edge
+          (any CSS length, e.g. 0, 15%, 60px)
+     --y: vertical offset from the container's top edge
+     --z: z-index — higher numbers sit in front
+     --w: figure width
+
+   The container takes --height for its overall vertical extent.
+
+   Example:
+     <div class="figure-stack" style="--height: 24em;">
+        <figure style="--x: 0;   --y: 0;   --z: 3; --w: 70%;">
+           <img src="..."><figcaption>...</figcaption>
+        </figure>
+        <figure style="--x: 15%; --y: 18%; --z: 2; --w: 70%;">
+           <img src="...">
+        </figure>
+        <figure style="--x: 30%; --y: 36%; --z: 1; --w: 70%;">
+           <img src="...">
+        </figure>
+     </div>
+*/
+.figure-stack {
+    position: relative;
+    width: 100%;
+    height: var(--height, 24em);
+    margin: 0 auto;
+}
+
+.figure-stack > figure {
+    position: absolute;
+    margin: 0;
+    top: var(--y, 0);
+    left: var(--x, 0);
+    z-index: var(--z, 1);
+    width: var(--w, 70%);
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.figure-stack > figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.figure-stack > figure a {
+    display: block;
+}
+
+.figure-stack > figure > figcaption {
+    text-align: center;
+    font-size: 0.75em;
+    padding: 0.2em 0.4em;
+    color: #555;
+}
+
+/* Stack multiple figures vertically in a column.
+   Use --width on individual <figure> elements to control their width.
+   Example:
+   <div class="figure-column">
+      <figure><img ...><figcaption>...</figcaption></figure>
+      <figure><img ...><figcaption>...</figcaption></figure>
+   </div> */
+.figure-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: var(--height, 550px);
+    gap: 0.8em;
+}
+
+.figure-column > figure {
+    margin: 0;
+    text-align: center;
+    width: var(--width, 100%);
+}
+
+.figure-column > figure > figcaption {
+    margin-top: 0.4em;
+    font-size: 0.8em;
+}
+
+/* Highlight box overlaid on an image. Wrap the <img> (and any <a>) in a
+   container marked .image-highlight-wrap, then add a sibling
+   <span class="image-highlight"> whose position is set via custom
+   properties:
+
+     --top, --left: offsets from the wrapper's top-left (any CSS length)
+     --w, --h:      width and height of the highlight box
+
+   Example:
+     <span class="image-highlight-wrap" style="width: 70%;">
+        <img src="...">
+        <span class="image-highlight"
+              style="--top: 19%; --left: 3%; --w: 49%; --h: 22%;"></span>
+     </span>
+
+   pointer-events: none keeps any underlying <a> click-through working. */
+.image-highlight-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+.image-highlight {
+    position: absolute;
+    top: var(--top, 0);
+    left: var(--left, 0);
+    width: var(--w, 10%);
+    height: var(--h, 10%);
+    border: 3px solid #0000ff;
+    background: rgba(255, 235, 59, 0.25);
+    border-radius: 6px;
+    pointer-events: none;
+}
+
+/* Title slide */
+
+.title-slide:after {
+    content: '';
+    background: url("../assets/logos/logo_institution.png") no-repeat;
+    background-size: 100% 100%;
+    width: 307px;
+    height: 92px;
+    position: absolute;
+    bottom: 1.5em;
+    left: 3.3em;
+    display: inline-block;
+}
+
+/* Hack to get middle logo on*/
+.middle-logo {
+    content: '';
+    background: url("../assets/logos/logo_IRIS-HEP.png") no-repeat;
+    background-size: 100% 100%;
+    width: 196px;
+    height: 108px;
+    position: absolute;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+}
+
+/* Even worse hack to get another logo on */
+.title-slide:before {
+    content: '';
+    background: url("../assets/logos/cern-logo.png") no-repeat;
+    background-size: 100% 100%;
+    width: 110px;
+    height: 110px;
+    position: absolute;
+    bottom: 1em;
+    right: 3.3em;
+    display: inline-block;
+}
+
+.title-slide {
+    vertical-align: middle;
+}
+
+.focus-slide {
+    vertical-align: middle;
+}
+
+.end-slide {
+    background-color: #20707e;
+    color: white;
+    vertical-align: middle;
+}
+
+.black-slide {
+    background-color: black;
+    color: white;
+    border-top: solid 0px;
+}
+
+/* Directory tree, inspired by slide 26 of
+   https://github.com/tdejager/rust-meetup (slidev-theme-tufte FileTree).
+
+   Usage in talk.md:
+
+     <pre class="file-tree">
+     <span class="root">my-project/</span>
+     ├── <span class="file">pixi.toml</span>
+     ├── <span class="file">pixi.lock</span>
+     ├── <span class="dir">src</span>
+     └── <span class="dir">.pixi</span>  <span class="comment"># lives next to your code</span>
+         └── <span class="dir">envs</span>
+             ├── <span class="dir">default</span>
+             │   ├── <span class="dir">bin</span>
+             │   ├── <span class="dir">lib</span>
+             │   └── <span class="dir">conda-meta</span>
+             └── <span class="dir">test</span>  <span class="comment"># feature-based, on demand</span>
+     </pre>
+
+   The ├──, └──, │ characters draw the connecting branch lines; the
+   surrounding <pre> color (#888) renders them muted-grey. Span classes
+   re-color the node names and add icons via ::before. Use <span
+   class="no-icon"> to suppress the icon on an individual entry. */
+
+.file-tree {
+    font-family: 'IBM Plex Mono', Menlo, Consolas, 'Liberation Mono', Courier, monospace;
+    font-size: 0.78em;
+    line-height: 1.45;
+    color: #888;
+    background: #fffff8;
+    border: 1px solid #e8e6d8;
+    border-radius: 4px;
+    padding: 1em 1.4em;
+    margin: 0.6em auto;
+    display: inline-block;
+    text-align: left;
+    overflow-x: auto;
+    position: relative;
+}
+
+.file-tree-copy {
+    position: absolute;
+    top: 0.35em;
+    right: 0.45em;
+    font-family: inherit;
+    font-size: 1em;
+    color: #888;
+    background: transparent;
+    border: 1px solid #d8d4c0;
+    border-radius: 3px;
+    padding: 0.3em;
+    cursor: pointer;
+    opacity: 0.55;
+    line-height: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.15s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.file-tree-copy svg {
+    width: 1.1em;
+    height: 1.1em;
+    display: block;
+}
+
+.file-tree:hover .file-tree-copy {
+    opacity: 1;
+}
+
+.file-tree-copy:hover {
+    background: #f5f1e0;
+    color: #555;
+}
+
+.file-tree-copy.copied {
+    color: #2c7a3e;
+    border-color: #b6dab6;
+    background: #eaf6ea;
+    opacity: 1;
+}
+
+.file-tree-copy.error {
+    color: #b03a2e;
+    border-color: #e8b5af;
+    background: #fbeae6;
+    opacity: 1;
+}
+
+.file-tree .root {
+    color: #111;
+    font-weight: bold;
+}
+
+.file-tree .root::before {
+    content: "\01F4C1\00A0";  /* folder emoji + nbsp */
+}
+
+.file-tree .dir {
+    color: #8a6d00;
+    font-weight: 500;
+}
+
+.file-tree .dir::before {
+    content: "\01F4C1\00A0";
+}
+
+.file-tree .file {
+    color: #2c3e50;
+}
+
+.file-tree .file::before {
+    content: "\01F4C4\00A0";  /* document emoji + nbsp */
+}
+
+.file-tree .link {
+    color: #c14a26;
+    font-style: italic;
+}
+
+.file-tree .link::before {
+    content: "\01F517\00A0";  /* link emoji + nbsp */
+}
+
+.file-tree .comment {
+    color: #888;
+    font-style: italic;
+}
+
+.file-tree .no-icon::before {
+    content: "";
+}
